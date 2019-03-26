@@ -1,0 +1,10 @@
+c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\bin\Debug\OfficeFileUnlocker.exe.config
+c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\bin\Debug\OfficeFileUnlocker.exe
+c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\bin\Debug\OfficeFileUnlocker.pdb
+c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.csprojAssemblyReference.cache
+c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.Properties.Resources.resources
+c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.csproj.GenerateResource.cache
+c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.csproj.CoreCompileInputs.cache
+c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.exe
+c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.pdb
+c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.MainForm.resources
