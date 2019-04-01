@@ -8,3 +8,13 @@ c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\Off
 c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.exe
 c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.pdb
 c:\users\gr9343\source\repos\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.MainForm.resources
+C:\Users\gr9343\Desktop\OfficeFileUnlocker\OfficeFileUnlocker\bin\Debug\OfficeFileUnlocker.exe.config
+C:\Users\gr9343\Desktop\OfficeFileUnlocker\OfficeFileUnlocker\bin\Debug\OfficeFileUnlocker.exe
+C:\Users\gr9343\Desktop\OfficeFileUnlocker\OfficeFileUnlocker\bin\Debug\OfficeFileUnlocker.pdb
+C:\Users\gr9343\Desktop\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.csprojAssemblyReference.cache
+C:\Users\gr9343\Desktop\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.MainForm.resources
+C:\Users\gr9343\Desktop\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.Properties.Resources.resources
+C:\Users\gr9343\Desktop\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.csproj.GenerateResource.cache
+C:\Users\gr9343\Desktop\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.csproj.CoreCompileInputs.cache
+C:\Users\gr9343\Desktop\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.exe
+C:\Users\gr9343\Desktop\OfficeFileUnlocker\OfficeFileUnlocker\obj\Debug\OfficeFileUnlocker.pdb

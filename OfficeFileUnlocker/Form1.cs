@@ -40,9 +40,12 @@ namespace OfficeFileUnlocker
             Application excel = new Application();
             Workbook wb = excel.Workbooks.Open(filename);
             Worksheet sheet = (Worksheet)wb.ActiveSheet;
-            char[] pwd = new char[13];
-            
+            string pwd = "";
+
             //algo du futur
+            //solution alternative: https://stackoverflow.com/questions/15196534/is-there-a-way-to-add-vba-macro-code-to-excel
+            //unlocker le VBA: https://stackoverflow.com/questions/1026483/is-there-a-way-to-crack-the-password-on-an-excel-vba-project?rq=1
+
             for (char i = 'A'; i < 67; ++i)
                 for (char j = 'A'; j < 67; ++j)
                     for (char k = 'A'; k < 67; ++k)
@@ -58,20 +61,21 @@ namespace OfficeFileUnlocker
                                                     {
                                                         try
                                                             {
-                                                                pwd[0] = i;
-                                                                pwd[1] = j;
-                                                                pwd[2] = k;
-                                                                pwd[3] = l;
-                                                                pwd[4] = m;
-                                                                pwd[5] = n;
-                                                                pwd[6] = o;
-                                                                pwd[7] = p;
-                                                                pwd[8] = q;
-                                                                pwd[9] = r;
-                                                                pwd[10] = s;
-                                                                pwd[11] = t;
-                                                                pwd[12] = Convert.ToChar(0);
-                                                                sheet.Unprotect(pwd);
+                                                                pwd = "";
+                                                                pwd += i;
+                                                                pwd += j;
+                                                                pwd += k;
+                                                                pwd += l;
+                                                                pwd += m;
+                                                                pwd += n;
+                                                                pwd += o;
+                                                                pwd += p;
+                                                                pwd += q;
+                                                                pwd += r;
+                                                                pwd += s;
+                                                                pwd += t;
+                                                                lbl_password.Text = "Password: " + pwd;
+                                                                sheet.Unprotect(pwd.ToCharArray());
                                                                 if (sheet.ProtectContents == false)
                                                                 {
                                                                     lbl_password.Text = "Password: " + pwd;

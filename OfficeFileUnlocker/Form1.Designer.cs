@@ -68,9 +68,9 @@
             this.lbl_password.AutoSize = true;
             this.lbl_password.Location = new System.Drawing.Point(12, 80);
             this.lbl_password.Name = "lbl_password";
-            this.lbl_password.Size = new System.Drawing.Size(86, 13);
+            this.lbl_password.Size = new System.Drawing.Size(56, 13);
             this.lbl_password.TabIndex = 3;
-            this.lbl_password.Text = "Password found:";
+            this.lbl_password.Text = "Password:";
             // 
             // MainForm
             // 
