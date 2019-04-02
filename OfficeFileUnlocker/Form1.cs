@@ -35,7 +35,28 @@ namespace OfficeFileUnlocker
             }
         }
 
+        private void bruteforce()
+        {
+            Application excel = new Application();
+            var wbs = excel.Workbooks;
+            Workbook wb = wbs.Open(filename);
+            Worksheet sheet = (Worksheet)wb.ActiveSheet;
+
+            //vba scripts:
+            //http://jsbi.blogspot.com/2008/09/how-to-easily-unprotectremove-password.html
+            //https://exceloffthegrid.com/removing-cracking-excel-passwords-with-vba/
+            //details sur la methode de hash d'excel
+            //https://stackoverflow.com/questions/19953979/cracking-sheet-password-with-vba/19958159
+        }
+
         private void bt_unlock_Click(object sender, EventArgs e)
+        {
+            bruteforce();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
+
+        private void old_algo()
         {
             Application excel = new Application();
             Workbook wb = excel.Workbooks.Open(filename);
@@ -58,8 +79,8 @@ namespace OfficeFileUnlocker
                                                 for (char r = 'A'; r < 67; ++r)
                                                     for (char s = 'A'; s < 67; ++s)
                                                         for (char t = ' '; t < 127; ++t)
-                                                    {
-                                                        try
+                                                        {
+                                                            try
                                                             {
                                                                 pwd = "";
                                                                 pwd += i;
@@ -86,7 +107,7 @@ namespace OfficeFileUnlocker
                                                             {
 
                                                             }
-                                                    }
+                                                        }
         }
     }
 }
