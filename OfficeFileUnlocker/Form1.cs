@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.Vbe.Interop;
+using Microsoft.Win32;
 using Application = Microsoft.Office.Interop.Excel.Application;
 
 namespace OfficeFileUnlocker
@@ -69,6 +70,22 @@ End Sub";
             }
         }
 
+        private void InitRegKey()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Office\\14.0\\Excel\\Security", true);
+            if (key != null)
+            {
+                key.SetValue("AccessVBOM", 1, RegistryValueKind.DWord);
+                key.Close();
+            }
+            key = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Office\\16.0\\Excel\\Security", true);
+            if (key != null)
+            {
+                key.SetValue("AccessVBOM", 1, RegistryValueKind.DWord);
+                key.Close();
+            }
+        }
+
         private void bruteforce()
         {
             lbl_status.Text = "In progress...";
@@ -76,6 +93,7 @@ End Sub";
 
             try
             {
+                InitRegKey();
                 var excel = new Application();
                 var wbs = excel.Workbooks;
                 Workbook wb = wbs.Open(filename);
