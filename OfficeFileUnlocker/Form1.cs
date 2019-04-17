@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
+using Microsoft.Vbe.Interop;
 using Application = Microsoft.Office.Interop.Excel.Application;
 
 namespace OfficeFileUnlocker
@@ -16,6 +17,39 @@ namespace OfficeFileUnlocker
     {
         string filepath = @"C:\";
         string filename = "";
+        string script =
+            @"Sub Unlocker()
+    'Breaks worksheet password protection.
+
+
+    Dim i As Integer, j As Integer, k As Integer
+    Dim l As Integer, m As Integer, n As Integer
+    Dim i1 As Integer, i2 As Integer, i3 As Integer
+    Dim i4 As Integer, i5 As Integer, i6 As Integer
+
+
+    On Error Resume Next
+
+
+    For i = 65 To 66: For j = 65 To 66: For k = 65 To 66
+    For l = 65 To 66: For m = 65 To 66: For i1 = 65 To 66
+    For i2 = 65 To 66: For i3 = 65 To 66: For i4 = 65 To 66
+    For i5 = 65 To 66: For i6 = 65 To 66: For n = 32 To 126
+ 
+        ActiveSheet.Unprotect Chr(i) & Chr(j) & Chr(k) & _
+            Chr(l) & Chr(m) & Chr(i1) & Chr(i2) & Chr(i3) & _
+            Chr(i4) & Chr(i5) & Chr(i6) & Chr(n)
+
+
+        If ActiveSheet.ProtectContents = False Then
+
+            Exit Sub
+
+        End If
+
+    Next: Next: Next: Next: Next: Next
+    Next: Next: Next: Next: Next: Next
+End Sub";
 
         public MainForm()
         {
@@ -37,10 +71,41 @@ namespace OfficeFileUnlocker
 
         private void bruteforce()
         {
-            Application excel = new Application();
-            var wbs = excel.Workbooks;
-            Workbook wb = wbs.Open(filename);
-            Worksheet sheet = (Worksheet)wb.ActiveSheet;
+            lbl_status.Text = "In progress...";
+            lbl_status.ForeColor = Color.Orange;
+
+            try
+            {
+                var excel = new Application();
+                var wbs = excel.Workbooks;
+                Workbook wb = wbs.Open(filename);
+                Worksheet sheet = (Worksheet)wb.ActiveSheet;
+
+                /*if (wb.HasVBProject)
+                {*/
+                VBProject project = wb.VBProject;
+
+                VBComponent module = project.VBComponents.Add(vbext_ComponentType.vbext_ct_StdModule);
+                module.CodeModule.AddFromString(script);
+
+                wb.Application.Run("Unlocker");
+                excel.Visible = false;
+                excel.UserControl = false;
+                //}
+
+                wb.Save();
+                wb.Close();
+                excel.Workbooks.Close();
+                excel.Quit();
+            }
+            catch (Exception e)
+            {
+                lbl_status.Text = "Failed";
+                lbl_status.ForeColor = Color.Red;
+            }
+
+            lbl_status.Text = "Success!";
+            lbl_status.ForeColor = Color.Green;
 
             //vba scripts:
             //http://jsbi.blogspot.com/2008/09/how-to-easily-unprotectremove-password.html
@@ -95,11 +160,11 @@ namespace OfficeFileUnlocker
                                                                 pwd += r;
                                                                 pwd += s;
                                                                 pwd += t;
-                                                                lbl_password.Text = "Password: " + pwd;
+                                                                //lbl_password.Text = "Password: " + pwd;
                                                                 sheet.Unprotect(pwd.ToCharArray());
                                                                 if (sheet.ProtectContents == false)
                                                                 {
-                                                                    lbl_password.Text = "Password: " + pwd;
+                                                                    //lbl_password.Text = "Password: " + pwd;
                                                                     return;
                                                                 }
                                                             }
