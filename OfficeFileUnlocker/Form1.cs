@@ -78,6 +78,12 @@ End Sub";
                 key.SetValue("AccessVBOM", 1, RegistryValueKind.DWord);
                 key.Close();
             }
+            key = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Office\\15.0\\Excel\\Security", true);
+            if (key != null)
+            {
+                key.SetValue("AccessVBOM", 1, RegistryValueKind.DWord);
+                key.Close();
+            }
             key = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Office\\16.0\\Excel\\Security", true);
             if (key != null)
             {
@@ -110,6 +116,7 @@ End Sub";
                 excel.Visible = false;
                 excel.UserControl = false;
                 //}
+                project.VBComponents.Remove(module);
 
                 wb.Save();
                 wb.Close();
